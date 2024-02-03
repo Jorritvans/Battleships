@@ -38,4 +38,12 @@ def place_ships(board):
                 fits = False
                 break
 
-        
+        if fits:
+            """
+            Place ships and record its size
+            """
+            for i in range(size):
+                new_x = x + direction[0] * i
+                new_y = y + direction[1] * i
+                board[new_x][new_y] = SHIP_SYMBOLS[size - 2]
+            break
