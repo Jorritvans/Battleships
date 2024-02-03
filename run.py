@@ -26,3 +26,16 @@ def place_ships(board):
             y = random.randint(0, len(board) - 1)
             direction = random.choice(DIRECTIONS)
 
+        """
+        Check if ship fits in the board in the chosen direction
+        """
+        fits = True
+        for i in range(size):
+            new_x = x + direction[0] * i
+            new_y = y + direction[1] * i
+            if not (0 <= new_x < len(board) and 0 <= new_y < len(board)) or \
+                    board[new_x][new_y] != EMPTY:
+                fits = False
+                break
+
+        
