@@ -1,3 +1,15 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+import random
+
+"""
+Constants
+"""
+MIN_BOARD_SIZE = 4
+MAX_BOARD_SIZE = 8
+EMPTY = ' '
+SHIP_SIZES = [2, 2, 3, 4]
+DIRECTIONS = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+
+"""
+Special symbols representing different ship sizes
+"""
+SHIP_SYMBOLS = ['@', '■', '∆']
