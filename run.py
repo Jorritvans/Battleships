@@ -13,3 +13,7 @@ DIRECTIONS = [(1, 0), (0, 1), (-1, 0), (0, -1)]
 Special symbols representing different ship sizes
 """
 SHIP_SYMBOLS = ['@', '■', '∆']
+
+
+def create_board(size):
+    return [[EMPTY] * size for _ in range(size)]
