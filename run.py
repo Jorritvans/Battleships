@@ -17,3 +17,12 @@ SHIP_SYMBOLS = ['@', '■', '∆']
 
 def create_board(size):
     return [[EMPTY] * size for _ in range(size)]
+
+
+def place_ships(board):
+    for size in SHIP_SIZES:
+        while True:
+            x = random.randint(0, len(board) - 1)
+            y = random.randint(0, len(board) - 1)
+            direction = random.choice(DIRECTIONS)
+
