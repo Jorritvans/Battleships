@@ -47,3 +47,10 @@ def place_ships(board):
                 new_y = y + direction[1] * i
                 board[new_x][new_y] = SHIP_SYMBOLS[size - 2]
             break
+
+def print_board(board,size, hide_ships=True)
+    column_width = len(str(size - 1))
+    print("  " + " ".join(f"{i:>{column_width}}" for i in range(size)))  
+    for i, row in enumerate(board):
+        row_display = [cell if cell != EMPTY else '.' for cell in row]
+        print(f"{i:>{column_width}} {' '.join(row_display)}")
