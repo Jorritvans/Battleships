@@ -54,3 +54,14 @@ def print_board(board,size, hide_ships=True)
     for i, row in enumerate(board):
         row_display = [cell if cell != EMPTY else '.' for cell in row]
         print(f"{i:>{column_width}} {' '.join(row_display)}")
+
+def get_board_size():
+    while True:
+        try:
+            size = int(input(f"Enter board size ({MIN_BOARD_SIZE}-{MAX_BOARD_SIZE}): "))
+            if MIN_BOARD_SIZE <= size <= MAX_BOARD_SIZE:
+                return size
+            else:
+                print(f"Invalid input. Please enter a number between {MIN_BOARD_SIZE} and {MAX_BOARD_SIZE}.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
