@@ -81,3 +81,11 @@ def get_guess(board_size):
 
 def get_player_name():
 return input("Enter your name: ")
+
+def play_again():
+    while True:
+        answer = input("Do you want to play again? (y/n): ").lower()
+        if answer in ['y', 'n']:
+            return answer == 'y'
+        else:
+            print("Invalid input. Please enter 'y' for yes or 'n' for no.")
