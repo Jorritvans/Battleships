@@ -89,3 +89,9 @@ def play_again():
             return answer == 'y'
         else:
             print("Invalid input. Please enter 'y' for yes or 'n' for no.")
+
+def update_board(board, x, y, result):
+    if result == 'Hit':
+        board[x][y] = '!'
+    elif result == 'Miss':
+        board[x][y] = 'X'
