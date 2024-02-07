@@ -95,3 +95,21 @@ def update_board(board, x, y, result):
         board[x][y] = '!'
     elif result == 'Miss':
         board[x][y] = 'X'
+
+def main():
+    print("Welcome to Battleships!")
+    player_name = get_player_name()
+
+    while True:
+        print(f"Welcome, {player_name}!")
+
+        board_size = get_board_size()
+        player_board = create_board(board_size)
+        computer_board = create_board(board_size)
+        player_guesses_board = create_board(board_size)
+
+        """
+        Place ships
+        """
+        place_ships(player_board)
+        place_ships(computer_board)
