@@ -77,3 +77,7 @@ def get_guess(board_size):
                 print(f"Invalid input. Please enter a number between 0 and {board_size - 1}.")
         except ValueError:
             print("Invalid input. Please enter a number.")
+
+
+def get_player_name():
+return input("Enter your name: ")
