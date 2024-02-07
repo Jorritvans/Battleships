@@ -65,3 +65,15 @@ def get_board_size():
                 print(f"Invalid input. Please enter a number between {MIN_BOARD_SIZE} and {MAX_BOARD_SIZE}.")
         except ValueError:
             print("Invalid input. Please enter a number.")
+
+def get_guess(board_size):
+    while True:
+        try:
+            x = int(input(f"Enter row (0-{board_size - 1}): "))
+            y = int(input(f"Enter column (0-{board_size - 1}): "))
+            if 0 <= x < board_size and 0 <= y < board_size:
+                return x, y
+            else:
+                print(f"Invalid input. Please enter a number between 0 and {board_size - 1}.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
