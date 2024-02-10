@@ -150,3 +150,22 @@ def main():
             if all(cell not in SHIP_SYMBOLS for row in computer_board for cell in row):
                 print("Congratulations! You've eliminated all the enemy ships!")
                 break
+        
+        """
+        Computers turn
+        """
+            print("\nComputer's turn:")
+            while True:
+                x, y = random.randint(0, board_size - 1), random.randint(0, board_size - 1)
+                if (x, y) not in computer_guesses:  # Check if the guess is not repeated
+                    computer_guesses.add((x, y))  # Add the guess to the set
+                    break
+            if player_board[x][y] != EMPTY:
+                print("The computer hit your ship at", x, y)
+                update_board(player_board, x, y, 'Hit')
+                if all(all(cell not in SHIP_SYMBOLS for cell in row) for row in player_board):
+                    print("Game Over! The computer sank all your ships!")
+                    break
+            else:
+                print("The computer missed at", x, y)
+                update_board(player_board, x, y, 'Miss')
