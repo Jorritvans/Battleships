@@ -143,3 +143,10 @@ def main():
             else:
                 print("Miss!")
                 update_board(player_guesses_board, x, y, 'Miss')
+
+            """
+            Check if all symbols '@', '■', '∆' have been eliminated from the computer's board
+            """
+            if all(cell not in SHIP_SYMBOLS for row in computer_board for cell in row):
+                print("Congratulations! You've eliminated all the enemy ships!")
+                break
