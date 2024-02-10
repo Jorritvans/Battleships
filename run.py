@@ -26,27 +26,27 @@ def place_ships(board):
             y = random.randint(0, len(board) - 1)
             direction = random.choice(DIRECTIONS)
 
-        """
-        Check if ship fits in the board in the chosen direction
-        """
-        fits = True
-        for i in range(size):
-            new_x = x + direction[0] * i
-            new_y = y + direction[1] * i
-            if not (0 <= new_x < len(board) and 0 <= new_y < len(board)) or \
-                    board[new_x][new_y] != EMPTY:
-                fits = False
-                break
-
-        if fits:
             """
-            Place ships and record its size
+            Check if ship fits in the board in the chosen direction
             """
+            fits = True
             for i in range(size):
                 new_x = x + direction[0] * i
                 new_y = y + direction[1] * i
-                board[new_x][new_y] = SHIP_SYMBOLS[size - 2]
-            break
+                if not (0 <= new_x < len(board) and 0 <= new_y < len(board)) or \
+                        board[new_x][new_y] != EMPTY:
+                    fits = False
+                    break
+
+            if fits:
+                """
+                Place ships and record its size
+                """
+                for i in range(size):
+                    new_x = x + direction[0] * i
+                    new_y = y + direction[1] * i
+                    board[new_x][new_y] = SHIP_SYMBOLS[size - 2]
+                break
 
 def print_board(board,size, hide_ships=True)
     column_width = len(str(size - 1))
@@ -64,7 +64,8 @@ def get_board_size():
             else:
                 print(f"Invalid input. Please enter a number between {MIN_BOARD_SIZE} and {MAX_BOARD_SIZE}.")
         except ValueError:
-            print("Invalid input. Please enter a number.")
+            print("Invalid input. Please enter a number between 4-8.")
+
 
 def get_guess(board_size):
     while True:
@@ -96,6 +97,23 @@ def update_board(board, x, y, result):
     elif result == 'Miss':
         board[x][y] = 'X'
 
+def check_ship_sunk(board, x, y):
+    ship_symbol = board[x][y]
+    if ship_symbol in SHIP_SYMBOLS:
+        ship_size = SHIP_SYMBOLS.index(ship_symbol) + 2
+        directions = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+        for dx, dy in directions:
+            count = 1
+            for i in range(1, ship_size):
+                nx, ny = x + dx * i, y + dy * i
+                if 0 <= nx < len(board) and 0 <= ny < len(board[0]) and board[nx][ny] == ship_symbol:
+                    count += 1
+                else:
+                    break
+            if count == ship_size:
+                return True
+    return False
+
 def main():
     print("Welcome to Battleships!")
     player_name = get_player_name()
@@ -126,13 +144,13 @@ def main():
             print("\nYour guesses:")
             print_board(player_guesses_board, board_size)
 
-        """
-        Players turn
-        """
+            """
+            Players turn
+            """
             print("\nYour turn:")
-            x, y = get_guess(board_size, player_guesses_board)
+            x, y = get_guess(board_size)
             if computer_board[x][y] != EMPTY:
-                print("Hit! You hit a", SHIP_NAMES[SHIP_SYMBOLS.index(computer_board[x][y])], "ship!")
+                print("Hit!")
                 update_board(player_guesses_board, x, y, 'Hit')
                 update_board(computer_board, x, y, 'Hit')
                 if check_ship_sunk(computer_board, x, y):
@@ -151,21 +169,19 @@ def main():
                 print("Congratulations! You've eliminated all the enemy ships!")
                 break
         
-        """
-        Computers turn
-        """
+            """
+            Computers turn
+            """
             print("\nComputer's turn:")
             while True:
                 x, y = random.randint(0, board_size - 1), random.randint(0, board_size - 1)
-                if (x, y) not in computer_guesses:  # Check if the guess is not repeated
-                    computer_guesses.add((x, y))  # Add the guess to the set
-                    break
-            if player_board[x][y] != EMPTY:
+                if player_board[x][y] != EMPTY:
                 print("The computer hit your ship at", x, y)
                 update_board(player_board, x, y, 'Hit')
                 if all(all(cell not in SHIP_SYMBOLS for cell in row) for row in player_board):
                     print("Game Over! The computer sank all your ships!")
                     break
+                
             else:
                 print("The computer missed at", x, y)
                 update_board(player_board, x, y, 'Miss')
@@ -180,6 +196,6 @@ def main():
         if not play_again():
             print("Thanks for playing!")
             break
-        
+
 if __name__ == "__main__":
     main()
