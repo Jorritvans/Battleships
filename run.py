@@ -153,14 +153,14 @@ def main():
             print("\nYour turn:")
             x, y = get_guess(board_size, player_guesses_board)
             if computer_board[x][y] != EMPTY:
-                print("Hit!")
+                print("You have hit a ship!")
                 update_board(player_guesses_board, x, y, 'Hit')
                 update_board(computer_board, x, y, 'Hit')
                 if all(all(cell not in SHIP_SYMBOLS for cell in row) for row in computer_board):
                     print("Congratulations! You sank all the enemy ships!")
                     break
             else:
-                print("Miss!")
+                print("You have missed!")
                 update_board(player_guesses_board, x, y, 'Miss')
 
             """
