@@ -125,3 +125,21 @@ def main():
             print_board(player_board, board_size, hide_ships=False)
             print("\nYour guesses:")
             print_board(player_guesses_board, board_size)
+
+        """
+        Players turn
+        """
+            print("\nYour turn:")
+            x, y = get_guess(board_size, player_guesses_board)
+            if computer_board[x][y] != EMPTY:
+                print("Hit! You hit a", SHIP_NAMES[SHIP_SYMBOLS.index(computer_board[x][y])], "ship!")
+                update_board(player_guesses_board, x, y, 'Hit')
+                update_board(computer_board, x, y, 'Hit')
+                if check_ship_sunk(computer_board, x, y):
+                    print(f"You sank a {SHIP_NAMES[SHIP_SYMBOLS.index(computer_board[x][y])]}!")
+                if all(all(cell not in SHIP_SYMBOLS for cell in row) for row in computer_board):
+                    print("Congratulations! You sank all the enemy ships!")
+                    break
+            else:
+                print("Miss!")
+                update_board(player_guesses_board, x, y, 'Miss')
