@@ -113,3 +113,15 @@ def main():
         """
         place_ships(player_board)
         place_ships(computer_board)
+
+        """ 
+        Game loop
+        """
+        while True:
+            """
+            Display boards
+            """
+            print("\nYour board:")
+            print_board(player_board, board_size, hide_ships=False)
+            print("\nYour guesses:")
+            print_board(player_guesses_board, board_size)
