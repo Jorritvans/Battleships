@@ -1,4 +1,5 @@
 import random
+from colorama import Fore
 
 """
 Variables
@@ -96,8 +97,10 @@ def get_play_again():
 def update_board(board, x, y, result):
     if result == 'Hit':
         board[x][y] = '!'
+        print(Fore.GREEN + "You hit an enemy ship!" + Fore.RESET)
     elif result == 'Miss':
         board[x][y] = 'X'
+        print(Fore.RED + "You missed!" + Fore.RESET)
 
 def check_ship_sunk(board, x, y):
     ship_symbol = board[x][y]
@@ -153,14 +156,14 @@ def main():
             print("\nYour turn:")
             x, y = get_guess(board_size, player_guesses_board)
             if computer_board[x][y] != EMPTY:
-                print("You have hit a ship!")
+                print(Fore.GREEN + "You have hit a ship!" + Fore.RESET)
                 update_board(player_guesses_board, x, y, 'Hit')
                 update_board(computer_board, x, y, 'Hit')
                 if all(all(cell not in SHIP_SYMBOLS for cell in row) for row in computer_board):
                     print("Congratulations! You sank all the enemy ships!")
                     break
             else:
-                print("You have missed!")
+                print(Fore.RED + "You have missed!" + Fore.RESET)
                 update_board(player_guesses_board, x, y, 'Miss')
 
             """
