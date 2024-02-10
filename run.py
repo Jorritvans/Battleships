@@ -151,7 +151,7 @@ def main():
             Players turn
             """
             print("\nYour turn:")
-            x, y = get_guess(board_size)
+            x, y = get_guess(board_size, player_guesses_board)
             if computer_board[x][y] != EMPTY:
                 print("Hit!")
                 update_board(player_guesses_board, x, y, 'Hit')
