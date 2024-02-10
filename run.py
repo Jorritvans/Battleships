@@ -97,10 +97,8 @@ def get_play_again():
 def update_board(board, x, y, result):
     if result == 'Hit':
         board[x][y] = '!'
-        print(Fore.GREEN + "You hit an enemy ship!" + Fore.RESET)
     elif result == 'Miss':
         board[x][y] = 'X'
-        print(Fore.RED + "You missed!" + Fore.RESET)
 
 def check_ship_sunk(board, x, y):
     ship_symbol = board[x][y]
