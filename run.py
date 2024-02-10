@@ -48,7 +48,7 @@ def place_ships(board):
                     board[new_x][new_y] = SHIP_SYMBOLS[size - 2]
                 break
 
-def print_board(board,size, hide_ships=True)
+def print_board(board, size, hide_ships=True):
     column_width = len(str(size - 1))
     print("  " + " ".join(f"{i:>{column_width}}" for i in range(size)))  
     for i, row in enumerate(board):
@@ -67,12 +67,12 @@ def get_board_size():
             print("Invalid input. Please enter a number between 4-8.")
 
 
-def get_guess(board_size):
+def get_guess(board_size, guesses_board):
     while True:
         try:
             x = int(input(f"Enter row (0-{board_size - 1}): "))
             y = int(input(f"Enter column (0-{board_size - 1}): "))
-            if 0 <= x < board_size and 0 <= y < board_size:
+            if 0 <= x < board_size and 0 <= y < board_size and guesses_board[x][y] == EMPTY:
                 return x, y
             else:
                 print(f"Invalid input. Please enter a number between 0 and {board_size - 1}.")
@@ -80,8 +80,10 @@ def get_guess(board_size):
             print("Invalid input. Please enter a number.")
 
 
+
 def get_player_name():
-return input("Enter your name: ")
+    return input("Enter your name: ")
+
 
 def play_again():
     while True:
@@ -125,6 +127,7 @@ def main():
         player_board = create_board(board_size)
         computer_board = create_board(board_size)
         player_guesses_board = create_board(board_size)
+        computer_guesses = set()
 
         """
         Place ships
@@ -153,8 +156,6 @@ def main():
                 print("Hit!")
                 update_board(player_guesses_board, x, y, 'Hit')
                 update_board(computer_board, x, y, 'Hit')
-                if check_ship_sunk(computer_board, x, y):
-                    print(f"You sank a {SHIP_NAMES[SHIP_SYMBOLS.index(computer_board[x][y])]}!")
                 if all(all(cell not in SHIP_SYMBOLS for cell in row) for row in computer_board):
                     print("Congratulations! You sank all the enemy ships!")
                     break
@@ -175,7 +176,10 @@ def main():
             print("\nComputer's turn:")
             while True:
                 x, y = random.randint(0, board_size - 1), random.randint(0, board_size - 1)
-                if player_board[x][y] != EMPTY:
+                if (x, y) not in computer_guesses:
+                    computer_guesses.add((x, y)) 
+                    break
+            if player_board[x][y] != EMPTY:
                 print("The computer hit your ship at", x, y)
                 update_board(player_board, x, y, 'Hit')
                 if all(all(cell not in SHIP_SYMBOLS for cell in row) for row in player_board):
