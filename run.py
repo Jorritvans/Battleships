@@ -1,7 +1,7 @@
 import random
 
 """
-Constants
+Variables
 """
 MIN_BOARD_SIZE = 4
 MAX_BOARD_SIZE = 8
@@ -162,6 +162,12 @@ def main():
             else:
                 print("Miss!")
                 update_board(player_guesses_board, x, y, 'Miss')
+
+            """
+            Check if a ship has been sunk
+            """
+            if check_ship_sunk(computer_board, x, y):
+                print(f"You sank a {SHIP_SYMBOLS[SHIP_SIZES.index(len(computer_board[x][y]))]}!")
 
             """
             Check if all symbols '@', '■', '∆' have been eliminated from the computer's board
