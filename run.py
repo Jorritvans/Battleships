@@ -85,7 +85,7 @@ def get_player_name():
     return input("Enter your name: ")
 
 
-def play_again():
+def get_play_again():
     while True:
         answer = input("Do you want to play again? (y/n): ").lower()
         if answer in ['y', 'n']:
@@ -103,7 +103,7 @@ def check_ship_sunk(board, x, y):
     ship_symbol = board[x][y]
     if ship_symbol in SHIP_SYMBOLS:
         ship_size = SHIP_SYMBOLS.index(ship_symbol) + 2
-        directions = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+        directions = DIRECTIONS
         for dx, dy in directions:
             count = 1
             for i in range(1, ship_size):
@@ -203,7 +203,7 @@ def main():
                 print("Game Over! You've eliminated all the enemy ships!")
                 break
 
-        if not play_again():
+        if not get_play_again():
             print("Thanks for playing!")
             break
 
