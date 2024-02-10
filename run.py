@@ -176,7 +176,10 @@ def main():
             if all(cell not in SHIP_SYMBOLS for row in player_board for cell in row):
                 print("Game Over! You've eliminated all the enemy ships!")
                 break
+
         if not play_again():
             print("Thanks for playing!")
             break
         
+if __name__ == "__main__":
+    main()
