@@ -1,5 +1,6 @@
 import random
-from colorama import Fore
+from colorama import Fore, init
+init()
 
 """
 Variables
