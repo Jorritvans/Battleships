@@ -63,7 +63,7 @@ def get_board_size():
             if MIN_BOARD_SIZE <= size <= MAX_BOARD_SIZE:
                 return size
             else:
-                print(f"Invalid input. Please enter a number between {MIN_BOARD_SIZE} and {MAX_BOARD_SIZE}.")
+                print(f"Invalid or Repeated input. Please enter a number between {MIN_BOARD_SIZE} and {MAX_BOARD_SIZE}.")
         except ValueError:
             print("Invalid input. Please enter a number between 4-8.")
 
