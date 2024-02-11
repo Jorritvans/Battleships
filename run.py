@@ -64,7 +64,7 @@ def get_board_size():
             if MIN_BOARD_SIZE <= size <= MAX_BOARD_SIZE:
                 return size
             else:
-                print(f"Invalid or Repeated input. Please enter a number between {MIN_BOARD_SIZE} and {MAX_BOARD_SIZE}.")
+                print(f"Invalid input. Please enter a number between {MIN_BOARD_SIZE} and {MAX_BOARD_SIZE}.")
         except ValueError:
             print("Invalid input. Please enter a number between 4-8.")
 
@@ -77,7 +77,7 @@ def get_guess(board_size, guesses_board):
             if 0 <= x < board_size and 0 <= y < board_size and guesses_board[x][y] == EMPTY:
                 return x, y
             else:
-                print(f"Invalid input. Please enter a number between 0 and {board_size - 1}.")
+                print(f"Invalid or Repeated input. Please enter a number between 0 and {board_size - 1}.")
         except ValueError:
             print("Invalid input. Please enter a number.")
 
