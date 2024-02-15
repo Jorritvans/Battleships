@@ -3,26 +3,24 @@ from colorama import Fore, init
 
 init()
 
-"""
-Variables
-"""
+# Variables
 MIN_BOARD_SIZE = 4
 MAX_BOARD_SIZE = 8
 EMPTY = ' '
 SHIP_SIZES = [2, 2, 3, 4]
 DIRECTIONS = [(1, 0), (0, 1), (-1, 0), (0, -1)]
 
-"""
-Special symbols representing different ship sizes
-"""
+# Special symbols representing different ship sizes
 SHIP_SYMBOLS = ['@', '■', '∆']
 
 
 def create_board(size):
+    # Create an empty game board of the given size
     return [[EMPTY] * size for _ in range(size)]
 
 
 def place_ships(board):
+    # Place ships randomly on the game board
     for size in SHIP_SIZES:
         while True:
             x = random.randint(0, len(board) - 1)
@@ -48,6 +46,7 @@ def place_ships(board):
 
 
 def print_board(board, size, hide_ships=True):
+    # Print the game board with proper formatting and color
     column_width = len(str(size - 1))
     print("  " + " ".join(f"{i:>{column_width}}" for i in range(size)))
     for i, row in enumerate(board):
@@ -64,6 +63,7 @@ def print_board(board, size, hide_ships=True):
 
 
 def get_board_size():
+    # Get the board size from the user within the specified range
     while True:
         try:
             size = int(input(f"Enter board size "
@@ -79,6 +79,7 @@ def get_board_size():
 
 
 def get_guess(board_size, guesses_board):
+    # Get the row and column indices for the player's guess
     while True:
         try:
             x = int(input(f"Enter row (0-{board_size - 1}): "))
@@ -96,10 +97,12 @@ def get_guess(board_size, guesses_board):
 
 
 def get_player_name():
+    # Get the player's name
     return input("Enter your name: ")
 
 
 def get_play_again():
+    # Ask the player if they want to play again
     while True:
         answer = input("Do you want to play again? (y/n): ").lower()
         if answer in ['y', 'n']:
@@ -109,6 +112,7 @@ def get_play_again():
 
 
 def update_board(board, x, y, result):
+    # Update the game board based on the result of the player's move
     if result == 'Hit':
         board[x][y] = '!'
     elif result == 'Miss':
@@ -116,6 +120,7 @@ def update_board(board, x, y, result):
 
 
 def check_ship_sunk(board, x, y):
+    # Check if a ship has been sunk after a successful hit
     ship_symbol = board[x][y]
     if ship_symbol in SHIP_SYMBOLS:
         ship_size = SHIP_SYMBOLS.index(ship_symbol) + 2
@@ -138,6 +143,7 @@ def check_ship_sunk(board, x, y):
 
 
 def main():
+    # Main function to execute the game
     print("Welcome to Battleships!")
     player_name = get_player_name()
 
@@ -150,27 +156,19 @@ def main():
         player_guesses_board = create_board(board_size)
         computer_guesses = set()
 
-        """
-        Place ships
-        """
+        # Place ships
         place_ships(player_board)
         place_ships(computer_board)
 
-        """
-        Game loop
-        """
+        # Game loop
         while True:
-            """
-            Display boards
-            """
+            # Display boards
             print("\nYour board:")
             print_board(player_board, board_size, hide_ships=False)
             print("\nYour guesses:")
             print_board(player_guesses_board, board_size)
 
-            """
-            Players turn
-            """
+            # Players turn
             print("\nYour turn:")
             x, y = get_guess(board_size, player_guesses_board)
             if computer_board[x][y] != EMPTY:
@@ -187,17 +185,13 @@ def main():
                 print(Fore.RED + "You have missed!" + Fore.RESET)
                 update_board(player_guesses_board, x, y, 'Miss')
 
-            """
-            Check if a ship has been sunk
-            """
+            # Check if a ship has been sunk
             if check_ship_sunk(computer_board, x, y):
                 ship_length = len(computer_board[x][y])
                 ship_index = ship_length - 2
                 print(f"You sank a {SHIP_SYMBOLS[ship_index]}!")
 
-            """
-            Check if all symbol have been eliminated from the computer's board
-            """
+            # Check if all symbol have been eliminated from the computer board
             if all(
                 all(cell not in SHIP_SYMBOLS for cell in row)
                 for row in computer_board
@@ -206,9 +200,7 @@ def main():
                       "You've eliminated all the enemy ships!")
                 break
 
-            """
-            Computers turn
-            """
+            # Computers turn
             print("\nComputer's turn:")
             while True:
                 x = random.randint(0, board_size - 1)
@@ -229,9 +221,7 @@ def main():
                 print("The computer missed at", x, y)
                 update_board(player_board, x, y, 'Miss')
 
-            """
-            Check if all symbols have been eliminated from the player's board
-            """
+            # Check if all symbols have been eliminated from the player's board
             if all(
                 all(cell not in SHIP_SYMBOLS for cell in row)
                 for row in player_board
