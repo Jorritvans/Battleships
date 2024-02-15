@@ -145,6 +145,11 @@ def check_ship_sunk(board, x, y):
 def main():
     # Main function to execute the game
     print("Welcome to Battleships!")
+    print("In this game, you will be playing against the computer.")
+    print("Your objective is to sink all the enemy ships ")
+    print("before they sink yours.")
+    print("The size of the enemy ships varies from 2 to 4.")
+    print("Good luck and have fun!")
     player_name = get_player_name()
 
     while True:
