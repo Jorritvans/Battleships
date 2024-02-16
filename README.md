@@ -1,7 +1,7 @@
 # Battleships
 Battleships is a classic two-player guessing game where opponents attempt to sink each other's fleet of ships.
 
-![am i responsive python](https://github.com/Jorritvans/Battleships/assets/146831899/641733b7-2143-4631-bfe7-6fb26942cff7)
+![Am I Responsive Python](https://github.com/Jorritvans/Battleships/assets/146831899/641733b7-2143-4631-bfe7-6fb26942cff7)
 
 ### Portfolio Project 3 - Python Essentials
 The purpose of this project was to build an interactive logic game for a user to play against the computer.
@@ -14,11 +14,14 @@ https://battleships-jorrit-1d65dbc636eb.herokuapp.com/ or press [link](https://b
 
 In Battleships, players take turns guessing the coordinates of their opponent's ships on a grid. The first player to sink all of their opponent's ships wins the game.
 
-- __How to play:__
+- __How to Play:__
 
 - Each player places their ships on the grid without overlapping.
+  
 - Players take turns guessing coordinates to attack their opponent's ships.
+  
 - If a guess hits a ship, it's marked as a hit. Otherwise, it's a miss.
+  
 - The game continues until one player sinks all of their opponent's ships.
 
 ## Features
@@ -58,10 +61,10 @@ In Battleships, players take turns guessing the coordinates of their opponent's 
 
 - __Programming Languages:__
 - Python
-- __Codeanywhere__
-- Codeanywhere was used for version control by utilizing the Codeanywhere terminal to commit and Push to GitHub.
+- __CodeAnywhere__
+- CodeAnywhere was used for version control by utilizing the Codeanywhere terminal to commit and Push to GitHub.
 - __Git__
-- Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+- Git was used for version control by utilizing the GitPod terminal to commit to Git and Push to GitHub.
 - __Github__
 - GitHub is used to store the projects code after being pushed from Git.
 - __VSCode__
@@ -85,7 +88,7 @@ In Battleships, players take turns guessing the coordinates of their opponent's 
 
 - Passed the code through a PEP8 linter and confirmed there are no problems or errors.
 
-- Given invalid imputs to check the error handling
+- Given invalid inputs to check the error handling
 
 - Tested it in my local terminal and the deployed version on Heroku.
 
@@ -108,17 +111,17 @@ This project was deployed using the Code Institute's mock terminal for Heroku.
 - Click on DEPLOY
 
 ## Credits 
-- __This project was developed by me.__
+- __This project was developed by entirely by me.__
 - Special thanks to the developers of Colorama for enhancing the user experience with colored output.
-- Got my ideas from stackoverflow: https://stackoverflow.com/questions/17952870/simple-python-battleship-game
+- Got my ideas from Stack Overflow: https://stackoverflow.com/questions/17952870/simple-python-battleship-game
 - Not a single line of code has been copied within my knowledge.
-- Code institute for the deployment terminal.
+- Code Institute for the deployment terminal.
 
 
 ## Advice and experience 
-Have had a lot of issues with codeanywhere where the workspace would not open resulting in less commit messages as i would have wanted myself as i had to work on VSCode locally
-until i contacted the tutor support so i could find out how to use gitpod, so i had to copy a lot of code from vscode to gitpod and might have lost a few important commits because of that...
-this is something i wanted to clarify as none of the code was taken from an external source what i know of, only took information from stackoverflow.
+Have had a lot of issues with CodeAnywhere where the workspace would not open resulting in less commit messages as i would have wanted myself as i had to work on VSCode locally
+until i contacted the tutor support so i could find out how to use GitPod, so i had to copy a lot of code from VSCode to GitPod and might have lost a few important commits because of that...
+this is something i wanted to clarify as none of the code was taken from an external source what i know of, only took information from Stack Overflow.
 ![CODEANYWHERE SLOW](https://github.com/Jorritvans/Battleships/assets/146831899/442323b9-15a9-412d-a8d4-f0e9078aca70)
 
 ## Acknowledgements
