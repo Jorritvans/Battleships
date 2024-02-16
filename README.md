@@ -10,7 +10,7 @@ The purpose of this project was to build an interactive logic game for a user to
 
 In Battleships, players take turns guessing the coordinates of their opponent's ships on a grid. The first player to sink all of their opponent's ships wins the game.
 
-- __To play:__
+- __ How to play:__
 
 - Each player places their ships on the grid without overlapping.
 - Players take turns guessing coordinates to attack their opponent's ships.
@@ -54,18 +54,36 @@ In Battleships, players take turns guessing the coordinates of their opponent's 
 - Ships: Varying sizes and symbols placed on the board.
 
 ## Testing 
-I have manually tested this project by doing the following:
+-__I have manually tested this project by doing the following:__
 
--Passed the code through a PEP* linter and confirmed there are no problems or errors.
+- Passed the code through a PEP8 linter and confirmed there are no problems or errors.
 
--Given invalid imputs to check the error handling
+- Given invalid imputs to check the error handling
 
--Tested it in my local terminal and the deployed version on Heroku.
+- Tested it in my local terminal and the deployed version on Heroku.
+
+## Bugs
+- __No known bugs.__
+
+- __PEP8__
+- No errors returned from the PEP8 checker.
 
 ## Deployment
+This project was deployed using the Code Institute's mock terminal for Heroku.
+
+- __Steps for deployment:__
+- fork or clone this repository
+- Create a new Heroku app
+- Set the buildpacks to Python and NodeJS in the same order as i mentioned
+- Link the Heroku app to the repository
+- Click on DEPLOY
 
 ## Credits 
-This project was developed by me. Special thanks to the developers of Colorama for enhancing the user experience with colored output.
-got my ideas from stackoverflow: https://stackoverflow.com/questions/17952870/simple-python-battleship-game
-Not a single line of code has been copied within my knowledge.
+- __This project was developed by me.__
+- Special thanks to the developers of Colorama for enhancing the user experience with colored output.
+- Got my ideas from stackoverflow: https://stackoverflow.com/questions/17952870/simple-python-battleship-game
+- Not a single line of code has been copied within my knowledge.
+- Code institute for the deployment terminal.
+## Advice and experience 
+
 ## Acknowledgements
