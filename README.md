@@ -71,7 +71,7 @@ In Battleships, players take turns guessing the coordinates of their opponent's 
 
 ## Development 
 
--I wanted the battleships to be placed randomly on the game board, so for that functionality I imported the random library.
+- I wanted the battleships to be placed randomly on the game board, so for that functionality I imported the random library.
 
 ## Data Model
 
