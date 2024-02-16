@@ -10,7 +10,7 @@ The purpose of this project was to build an interactive logic game for a user to
 
 In Battleships, players take turns guessing the coordinates of their opponent's ships on a grid. The first player to sink all of their opponent's ships wins the game.
 
-- __ How to play:__
+- __How to play:__
 
 - Each player places their ships on the grid without overlapping.
 - Players take turns guessing coordinates to attack their opponent's ships.
