@@ -1,9 +1,21 @@
 # Battleships
+Battleships is a classic two-player guessing game where opponents attempt to sink each other's fleet of ships.
 
 ### Portfolio Project 3 - Python Essemtials
 The purpose of this project was to build an interactive logic game for a user to play against the computer.
 
 ## Link to app
+
+## How to Play
+
+In Battleships, players take turns guessing the coordinates of their opponent's ships on a grid. The first player to sink all of their opponent's ships wins the game.
+
+- __To play:__
+
+- Each player places their ships on the grid without overlapping.
+- Players take turns guessing coordinates to attack their opponent's ships.
+- If a guess hits a ship, it's marked as a hit. Otherwise, it's a miss.
+- The game continues until one player sinks all of their opponent's ships.
 
 ## Features
 
