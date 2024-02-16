@@ -5,7 +5,8 @@ The purpose of this project was to build an interactive logic game for a user to
 
 ## Link to app
 
-## Features 
+## Features
+
 - __Game Initialization__ : Creates a game board and places ships randomly.
 - __Player and Computer Turns__ : Allows players to guess coordinates on the opponent's board.
 - __Winning Conditions__ : Determines the winner based on the first player to sink all ships.
@@ -16,12 +17,36 @@ The purpose of this project was to build an interactive logic game for a user to
 
 ## Technologies Used
 
+- __Programming Languages:__
+- Python
+- __Codeanywhere__
+- Codeanywhere was used for version control by utilizing the Codeanywhere terminal to commit and Push to GitHub.
+- __Git__
+- Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+- __Github__
+- GitHub is used to store the projects code after being pushed from Git.
+- __VSCode__
+- VSCode was used for version control by utilizing the VSCode terminal to commit and Push to GitHub.
+- __Colorama__
+- To get a colored output in some text.
+
 ## Development 
 
+-I wanted the battleship to be placed randomly on the game board, so for that functionality I imported the random library.
+
 ## Testing 
+I have manually tested this project by doing the following:
+
+-Passed the code through a PEP* linter and confirmed there are no problems or errors.
+
+-Given invalid imputs to check the error handling
+
+-Tested it in my local terminal and the deployed version on Heroku.
 
 ## Deployment
 
 ## Credits 
-
+This project was developed by me. Special thanks to the developers of Colorama for enhancing the user experience with colored output.
+got my ideas from stackoverflow: https://stackoverflow.com/questions/17952870/simple-python-battleship-game
+Not a single line of code has been copied within my knowledge.
 ## Acknowledgements
