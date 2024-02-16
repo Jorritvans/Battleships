@@ -46,6 +46,13 @@ In Battleships, players take turns guessing the coordinates of their opponent's 
 
 -I wanted the battleship to be placed randomly on the game board, so for that functionality I imported the random library.
 
+## Data Model
+
+- __The data model consists of:__
+
+- Game board: Represented as a 2D grid where ships are placed.
+- Ships: Varying sizes and symbols placed on the board.
+
 ## Testing 
 I have manually tested this project by doing the following:
 
